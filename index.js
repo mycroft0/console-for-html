@@ -1,6 +1,5 @@
 window.onload = consoleBuild = () => {
     let element = document.createElement("div");
-    element.setAttribute('id', 'my-id');
     document.body.appendChild(element)
     element.style.cssText=` color: #394867;
                             width: 100%;
@@ -15,6 +14,25 @@ window.onload = consoleBuild = () => {
                             position: absolute;
                             bottom: 10px;
   `;
+
     let para = document.createTextNode('The man who mistook his wife for a hat');
     element.appendChild(para);
+
+    let str = '';
+    function traverse(el) {
+
+        str += el.nodeName + "<br>";
+
+        for (let i = 0; i < el.children.length; i++) {
+            traverse(el.children[i]);
+        }
+
+    }
+
+    traverse(document.documentElement);
+    console.log(str);
+
 }
+
+
+
